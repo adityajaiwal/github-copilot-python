@@ -2,17 +2,54 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sudoku Game</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
   <h1>Sudoku Game</h1>
-  <div id="sudoku-board"></div>
+  <p id="board-help" class="visually-hidden">Enter a number from 1 to 9. Duplicate numbers in a row, column, or 3 by 3 box are highlighted.</p>
+  <div id="sudoku-board" role="group" aria-label="Sudoku puzzle" aria-describedby="board-help"></div>
   <div class="controls">
+    <button id="theme-toggle" type="button" aria-pressed="false">Switch to Dark Mode</button>
+    <span id="theme-status" role="status"></span>
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="easy">Easy</option>
+      <option value="medium" selected>Medium</option>
+      <option value="hard">Hard</option>
+    </select>
     <button id="new-game">New Game</button>
-    <button id="check-solution">Check Solution</button>
-    <span id="message"></span>
+    <button id="hint" type="button" aria-label="Fill one empty cell with a correct hint">Hint</button>
+    <button id="check-solution" type="button">Check Solution</button>
+    <span id="timer" aria-label="Elapsed time" aria-live="off">00:00</span>
+    <span id="hints-used" aria-live="polite">Hints used: 0</span>
+    <span id="message" role="status" aria-live="polite"></span>
   </div>
+  <form id="score-entry" class="score-entry" hidden>
+    <label for="player-name">Your name for the leaderboard:</label>
+    <input id="player-name" name="player-name" type="text" maxlength="40" autocomplete="name">
+    <button type="submit">Save Score</button>
+    <span id="score-entry-message" role="status"></span>
+  </form>
+  <section id="leaderboard" class="leaderboard" aria-labelledby="leaderboard-title">
+    <h2 id="leaderboard-title">Top 10 Fastest Times</h2>
+    <p id="leaderboard-status" role="status"></p>
+    <div class="leaderboard-table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Player</th>
+            <th scope="col">Time</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Hints</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+      </table>
+    </div>
+  </section>
   <script src="/static/main.js"></script>
 </body>
 </html>
