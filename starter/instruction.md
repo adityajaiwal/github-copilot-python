@@ -68,3 +68,17 @@ The project starts with a legacy Sudoku application. Refactor and improve the ex
 The final application should be functional, responsive, maintainable, tested, and ready for public GitHub submission.
 
 Update README.md with project setup, installation, running, and testing instructions.
+
+
+## Critical Evaluation of GitHub Copilot Suggestions
+
+- Do not automatically accept every Copilot-generated suggestion.
+- Review proposed code for correctness, compatibility, and maintainability.
+- Compare suggestions with the existing project architecture.
+- Reject suggestions that introduce unnecessary changes or break existing functionality.
+- Modify suggestions when improvements are needed.
+- Explain the reason for accepting, modifying, or rejecting important suggestions.
+- Keep screenshots or code comments as evidence of critical evaluation.
+- Run relevant tests after implementing accepted changes.
+
+The developer is responsible for reviewing and validating all AI-generated code.
